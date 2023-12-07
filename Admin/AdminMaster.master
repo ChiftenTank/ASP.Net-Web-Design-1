@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="Admin_AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>آموزشگاه و فروشگاه آشپزی بانو</title>
+    <link href="../CSS/MainStyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body dir="rtl">
+    <form id="form1" runat="server">
+        <div>
+            <div id="TopHeader">
+
+                <div id="logo">
+                    <asp:Image ID="Image1" runat="server" Height="70px" ImageUrl="~/Images/Icons/Logo Site.jpg" Width="80px" CssClass="logoimage" ValidateRequestMode="Disabled" />
+
+                </div>
+                <div id="sitename">
+                    آموزشگاه و فروشگاه آشپزی بانو
+                </div>
+                <div id="search">
+                    <asp:Image ID="Image9" runat="server" CssClass="logoimage" Height="35px" ImageUrl="~/Images/Icons/Searching icon.png" Width="35px" />
+                    جستجو
+                </div>
+                <div id="socialnet">
+
+                    <asp:ImageButton ID="Image2" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/facebook icon.png" ToolTip="فیس بوک" />
+                    <asp:ImageButton ID="Image3" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/instagram icon.png" ToolTip="اینستاگرام" />
+                    <asp:ImageButton ID="Image4" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/telegram icon.png" ToolTip="تلگرام" />
+                    <asp:ImageButton ID="Image5" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/twitter icon.png" ToolTip="توییتر" />
+
+                </div>
+                <div id="register">
+                    <asp:ImageButton ID="Image8" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/login user icon.png" ToolTip="ورود کاربران" />
+                    <asp:ImageButton ID="Image6" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/register icon.png" ToolTip="ثبت نام" />
+                    <asp:ImageButton ID="Image7" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/shopping icon.png" ToolTip="سبد خرید" />
+                </div>
+            </div>
+             <div id="menu">
+                <asp:Menu ID="Menu" runat="server" Height="70px" Orientation="Horizontal" ForeColor="Black" Width="1024px">
+                    <DynamicHoverStyle BackColor="#FFFF66" ForeColor="Black" />
+                    <DynamicMenuItemStyle BorderColor="#FFFF99" BorderStyle="Solid" BorderWidth="1px" ForeColor="#000099" Height="30px" Width="110px" />
+                    <DynamicItemTemplate>
+                        <%# Eval("Text") %>
+                    </DynamicItemTemplate>
+                    <Items>
+                        <asp:MenuItem Text="صفحه اصلی" Value="صفحه اصلی" NavigateUrl="~/Admin/Default.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="نمایش اسلایدها" Value="نمایش اسلایدها" NavigateUrl="~/Admin/Slides.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="دستور پخت غذاها" Value="خرید">
+                            <asp:MenuItem Text="غذاهای فرنگی" Value="غذاهای فرنگی"></asp:MenuItem>
+                            <asp:MenuItem Text="غذاهای ایرانی" Value="غذاهای ایرانی"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="اخبار" Value="دستور پخت غذاها">
+                            <asp:MenuItem NavigateUrl="~/Admin/NewsAdmin.aspx?newscat=1" Text="آشپزی" Value="غذاها"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Admin/NewsAdmin.aspx?newscat=2" Text="شیرینی پزی" Value="دستور پخت غذاها"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Admin/NewsAdmin.aspx?newscat=1" Text="برگزاری دوره ها" Value="برگزاری دوره ها"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="فروشگاه" Value="فروشگاه">
+                            <asp:MenuItem Text="لوازم آشپزخانه" Value="لوازم آشپزخانه" NavigateUrl="~/Admin/Mahsoolat.aspx?mcat=1"></asp:MenuItem>
+                            <asp:MenuItem Text="لوازم قنادی" Value="لوازم قنادی" NavigateUrl="~/Admin/Mahsoolat.aspx?mcat=2"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="دوره های آموزشی" Value="دوره های آموزشی">
+                            <asp:MenuItem NavigateUrl="~/Admin/Courses.aspx?cid=1" Text="آشپزی " Value="آشپزی"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Admin/Courses.aspx?cid=2" Text="شیرینی پزی" Value="شیرینی پزی"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Admin/Courses.aspx?cid=3" Text="کافی شاپ" Value="کافی شاپ"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                    <StaticHoverStyle Height="40px" Width="110px" BackColor="Black" ForeColor="#CCCC00" />
+                    <StaticMenuItemStyle Height="50px" Width="125px" />
+                </asp:Menu>
+            </div>
+            <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+               
+            </asp:ContentPlaceHolder>
+        </div>
+        </div>
+    </form>
+</body>
+</html>

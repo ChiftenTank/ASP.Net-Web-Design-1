@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="RegisterMaster.master.cs" Inherits="RegisterMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>آموزشگاه و فروشگاه آشپزی بانو
+    </title>
+    <link href="CSS/MainStyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 90%;
+            border: 1px solid #000000;
+        }
+
+        .auto-style2 {
+            height: 24px;
+        }
+
+        .auto-style3 {
+            height: 26px;
+        }
+
+        .auto-style4 {
+            width: 146px;
+        }
+
+        .auto-style5 {
+            height: 24px;
+            width: 146px;
+        }
+
+        .auto-style6 {
+            height: 26px;
+            width: 146px;
+        }
+
+        .glow {
+            padding-top: 20px;
+            float: right;
+            font-size: 25px;
+            color: darkslateblue;
+            text-align: center;
+            -webkit-animation: glow 5s ease-in-out infinite alternate;
+            -moz-animation: glow 5s ease-in-out infinite alternate;
+            animation: glow 5s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <form id="form1" runat="server">
+        <div id="All">
+
+            <div id="TopHeader">
+
+                <div id="logo">
+                    <asp:Image ID="Image1" runat="server" Height="70px" ImageUrl="~/Images/Icons/Logo Site.jpg" Width="80px" CssClass="logoimage" ValidateRequestMode="Disabled" />
+
+                </div>
+                <div id="glow">
+                    آموزشگاه و فروشگاه آشپزی بانو
+                </div>
+                <div id="search">
+                    <asp:Image ID="Image9" runat="server" CssClass="logoimage" Height="35px" ImageUrl="~/Images/Icons/Searching icon.png" Width="35px" />
+                    جستجو
+                </div>
+                <div id="socialnet">
+
+                    <asp:ImageButton ID="Image2" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/facebook icon.png" ToolTip="فیس بوک" />
+                    <asp:ImageButton ID="Image3" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/instagram icon.png" ToolTip="اینستاگرام" />
+                    <asp:ImageButton ID="Image4" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/telegram icon.png" ToolTip="تلگرام" />
+                    <asp:ImageButton ID="Image5" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/twitter icon.png" ToolTip="توییتر" />
+
+                </div>
+                <div id="register">
+                    <asp:ImageButton ID="Image8" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/login user icon.png" ToolTip="ورود کاربران" OnClick="Image8_Click" />
+                    <asp:ImageButton ID="Image6" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/register icon.png" ToolTip="ثبت نام" OnClick="Image6_Click" />
+                    <asp:ImageButton ID="Image7" runat="server" Height="30px" Width="30px" CssClass="socialicons" ImageUrl="~/Images/Icons/shopping icon.png" ToolTip="سبد خرید" />
+                </div>
+            </div>
+            <div id="menu">
+                <asp:Menu ID="Menu" runat="server" Height="70px" Orientation="Horizontal" ForeColor="Black">
+                    <DynamicHoverStyle BackColor="#FFFF66" ForeColor="Black" />
+                    <DynamicMenuItemStyle BorderColor="#FFFF99" BorderStyle="Solid" BorderWidth="1px" ForeColor="#000099" Height="30px" Width="110px" />
+                    <DynamicItemTemplate>
+                        <%# Eval("Text") %>
+                    </DynamicItemTemplate>
+                    <Items>
+                        <asp:MenuItem Text="صفحه اصلی" Value="صفحه اصلی" NavigateUrl="~/MainForm.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="دستور پخت غذاها" Value="خرید">
+                            <asp:MenuItem Text="غذاهای فرنگی" Value="غذاهای فرنگی"></asp:MenuItem>
+                            <asp:MenuItem Text="غذاهای ایرانی" Value="غذاهای ایرانی"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="اخبار" Value="دستور پخت غذاها">
+                            <asp:MenuItem NavigateUrl="~/NS.aspx?newscat=1" Text="آشپزی" Value="غذاها"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/NS.aspx?newscat=2" Text="شیرینی پزی" Value="دستور پخت غذاها"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/NS.aspx?newscat=3" Text="دوره های آموزشی" Value="دوره های آموزشی"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="فروشگاه" Value="فروشگاه">
+                            <asp:MenuItem Text="لوازم آشپزخانه" Value="لوازم آشپزخانه" NavigateUrl="~/MahsollatShow.aspx?cat=1"></asp:MenuItem>
+                            <asp:MenuItem Text="لوازم قنادی" Value="لوازم قنادی" NavigateUrl="~/MahsollatShow.aspx?cat=2"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="درباره ما" Value="درباره ما"></asp:MenuItem>
+                    </Items>
+                    <StaticHoverStyle Height="40px" Width="110px" BackColor="Black" ForeColor="#CCCC00" />
+                    <StaticMenuItemStyle Height="50px" Width="125px" />
+                </asp:Menu>
+            </div>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            
+                <div id="futer">
+                    <div style="width: 530px; height: 300px; float: right; padding-right: 50px">
+                        <table align="center" class="auto-style2" dir="rtl">
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Label ID="Label2" runat="server" BackColor="White" Font-Bold="True" Font-Overline="False" Font-Size="Large" Font-Strikeout="False" Font-Underline="True" Text="راه های ارتباط با ما"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <asp:Label ID="Label8" runat="server" Font-Names="B Nazanin" Font-Size="X-Large" Font-Underline="False" Text="آدرس:" BackColor="Silver" ForeColor="Black"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Font-Names="B Nazanin" Font-Size="Large" Font-Underline="False" ForeColor="Yellow" Text=" اصفهان - خیابان سعادت آباد" BackColor="Silver"></asp:Label>
+
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style3">
+                                    <asp:Label ID="Label4" runat="server" BackColor="Silver" Text="شماره:" Font-Size="X-Large" ForeColor="Black"></asp:Label>
+                                    <asp:Label ID="Label7" runat="server" Font-Size="Large" Text="03137775552" BackColor="Silver" ForeColor="Yellow"></asp:Label>
+                                </td>
+                                <td class="auto-style3">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: right; width: 450px; height: 300px; padding-right: 45px">
+
+                        <table align="center" class="auto-style4" dir="rtl">
+                            <tr>
+                                <td>
+                                    <asp:Label ID="Label5" runat="server" BackColor="White" Font-Bold="True" Font-Overline="False" Font-Size="Large" Font-Strikeout="False" Font-Underline="True" Text="ما را در شبکه های اجتماعی دنبال کنید"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="35px" ImageUrl="~/Images/Icons/facebook icon.png" OnClick="ImageButton1_Click" ToolTip="فیس بوک" Width="40px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:ImageButton ID="ImageButton2" runat="server" Height="35px" ImageUrl="~/Images/Icons/instagram icon.png" OnClick="ImageButton2_Click" ToolTip="اینستاگرام" Width="40px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style3">
+                                    <asp:ImageButton ID="ImageButton3" runat="server" Height="35px" ImageUrl="~/Images/Icons/telegram icon.png" OnClick="ImageButton3_Click" ToolTip="تلگرام" Width="40px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:ImageButton ID="ImageButton4" runat="server" Height="35px" ImageUrl="~/Images/Icons/twitter icon.png" OnClick="ImageButton4_Click" ToolTip="توییتر" Width="40px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                        </div>
+            </div>
+    </form>
+</body>
+</html>
